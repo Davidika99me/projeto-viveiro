@@ -1,0 +1,139 @@
+/* --- Reset Básico e Padrões --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que padding e border não alterem a largura final do elemento */
+    font-family: sans-serif; /* É uma boa prática definir uma fonte padrão */
+}
+
+/* --- Corpo da Página --- */
+body {
+    background-color: #f4f4f4; /* Uma cor de fundo suave */
+}
+
+/* --- Container Principal --- */
+.container {
+    width: 90%; /* Usa porcentagem para ser fluido */
+    max-width: 1200px; /* Define uma largura máxima para telas grandes */
+    margin: 0 auto; /* Centraliza o container na página */
+    display: flex;
+    flex-direction: column; /* Organiza os filhos (header, main) em coluna */
+}
+
+/* --- Cabeçalho --- */
+header {
+    width: 100%;
+    background-color: #fff;
+    padding: 1rem 0; /* Espaçamento interno (16px em cima/baixo, 0 nos lados) */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Uma sombra sutil */
+    margin-bottom: 2rem; /* Espaço entre o cabeçalho e o conteúdo principal */
+}
+
+.cabecalho {
+    display: flex; /* ESSENCIAL: Alinha os filhos (img, h1, p) em linha */
+    justify-content: space-between; /* Distribui o espaço entre os itens */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    padding: 0 5%; /* Adiciona um espaçamento interno nas laterais */
+}
+
+.cabecalho img {
+    max-width: 150px; /* Define um tamanho máximo para a logo, evitando que ela fique muito grande */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+.cabecalho h1 {
+    /* O H1 já foi movido para o main, o que faz mais sentido semanticamente. */
+    /* Se quisesse manter o título "Contatos" aqui, poderia estilizá-lo. */
+}
+
+.cabecalho p {
+    margin: 0 10px; /* Adiciona um pequeno espaçamento entre os links de contato */
+    cursor: pointer;
+    color: #333;
+}
+
+.cabecalho p:hover {
+    color: #007bff; /* Efeito ao passar o mouse */
+}
+
+
+/* --- Barra de Navegação --- */
+.navbar {
+    margin-top: 1rem; /* Espaço entre o cabeçalho e a navegação */
+    padding: 0 5%;
+}
+
+.navbar ul {
+    list-style: none; /* Remove os pontos da lista */
+    display: flex;
+    justify-content: center; /* Centraliza os itens da navegação */
+    gap: 2rem; /* Espaçamento entre os itens da lista */
+}
+
+.navbar ul li {
+    cursor: pointer;
+    font-weight: bold;
+    color: #555;
+}
+
+.navbar ul li:hover {
+    color: #007bff;
+}
+
+/* --- Conteúdo Principal (Main) --- */
+main {
+    text-align: center; /* Centraliza o h1 e o botão */
+}
+
+main h1 {
+    margin-bottom: 1rem;
+}
+
+main button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+/* --- Grade de Produtos --- */
+.produtos {
+    display: grid;
+    /* Cria um grid responsivo: no mínimo colunas de 250px, e no máximo preenche o espaço disponível (1fr) */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem; /* Espaçamento entre os produtos */
+    width: 100%;
+}
+
+.produtos > div { /* Estilo para todos os "Produto X" */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    height: 200px; /* Altura fixa para exemplo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+/* --- Media Query para Responsividade --- */
+/* Para telas menores que 768px (tablets e celulares) */
+@media (max-width: 768px) {
+    .cabecalho {
+        flex-direction: column; /* Coloca os itens do cabeçalho um embaixo do outro */
+        gap: 1rem; /* Espaçamento entre os itens empilhados */
+    }
+
+    .navbar ul {
+        flex-direction: column; /* Empilha os links de navegação */
+        align-items: center; /* Centraliza os links empilhados */
+        gap: 1rem;
+    }
+}
